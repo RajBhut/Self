@@ -413,7 +413,7 @@ const Portfolio = () => {
                 variants={imageHoverVariants}
               >
                 <img
-                  src="../public/raj.jpg"
+                  src="raj.jpg"
                   alt="Raj Bhut"
                   className="w-full h-full object-cover rounded-full"
                 />
