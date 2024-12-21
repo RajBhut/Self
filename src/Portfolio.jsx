@@ -39,14 +39,12 @@ const Portfolio = () => {
   const [activeSection, setActiveSection] = useState("home");
   const { scrollYProgress } = useScroll();
 
-  // Smooth scroll progress bar
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001,
   });
 
-  // Custom cursor animation
   useEffect(() => {
     const moveCursor = (e) => {
       setCursorPosition({ x: e.clientX, y: e.clientY });
@@ -93,7 +91,6 @@ const Portfolio = () => {
     );
   };
 
-  // Projects data with enhanced visuals
   const projects = [
     {
       id: 1,
@@ -307,7 +304,6 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-gray-100 overflow-hidden">
-      {/* Custom Cursor */}
       <motion.div
         className="fixed w-4 h-4 bg-blue-500 rounded-full mix-blend-screen pointer-events-none z-50"
         animate={{
@@ -329,7 +325,6 @@ const Portfolio = () => {
         style={{ scaleX, transformOrigin: "0%" }}
       />
 
-      {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 bg-black/20 backdrop-blur-xl border-b border-white/10 z-40">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between h-16 items-center">
@@ -363,7 +358,6 @@ const Portfolio = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
       <section
         className="min-h-screen flex items-center justify-center relative"
         id="about"
@@ -675,10 +669,7 @@ const Portfolio = () => {
                       text: "rajbhut2832005@gmail.com",
                       link: "mailto:rajbhut2832005@gmail.com",
                     },
-                    {
-                      icon: <Phone className="w-5 h-5" />,
-                      text: "+919016952121",
-                    },
+
                     {
                       icon: <Github className="w-5 h-5" />,
                       text: "github.com/RajBhut",
