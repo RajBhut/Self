@@ -148,7 +148,7 @@ const Portfolio = () => {
       technologies: ["React Native", "TypeScript"],
       icon: <Gamepad className="w-8 h-8" />,
       color: "from-indigo-600 to-violet-600",
-      demo: "https://flatcardgame.com",
+      demo: "https://drive.google.com/file/d/1e1ymg6Ego99LohP__q71SvWiwd2U0Qki/view?usp=drivesdk",
       details:
         "Mobile game with customizable settings, animations, and engaging gameplay for kids, featuring a 'surrender' button and modal improvements.",
     },
