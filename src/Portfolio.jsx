@@ -220,16 +220,17 @@ const Portfolio = () => {
       details:
         "A fun and educational quiz platform. Features real-time leaderboard, customizable quizzes, and plans to include AI-powered question generation and adaptive difficulty.",
     },
-    // {
-    //   id: 12,
-    //   name:"Other Projects",
-    //   description:"Other on going projects...",
-    //   technologies: [],
-    //   icon:<FileQuestionIcon className="w-8 h-8" />,
-    //   color: "from-yellow-600 to-orange-600",
-    //   demo: "",
-    //   details:"For more my work... "
-    // }
+    {
+      id: 12,
+      name: "Tagger",
+      description: "Online multiplayer game",
+      technologies: ["HTML", "CSS", "JS"],
+      icon: <Gamepad className="w-8 h-8" />,
+      color: "from-yellow-600 to-orange-600",
+      demo: "https://tagger.nxog.tech",
+      details:
+        "A fun online multiplayer game made with websocket to learn websockets ",
+    },
   ];
 
   const floatingAnimation = {
