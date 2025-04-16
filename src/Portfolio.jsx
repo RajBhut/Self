@@ -148,7 +148,7 @@ const Portfolio = () => {
       technologies: ["React Native", "TypeScript"],
       icon: <Gamepad className="w-8 h-8" />,
       color: "from-indigo-600 to-violet-600",
-      demo: "https://flatcardgame.com",
+      demo: "https://drive.google.com/file/d/1e1ymg6Ego99LohP__q71SvWiwd2U0Qki/view?usp=drivesdk",
       details:
         "Mobile game with customizable settings, animations, and engaging gameplay for kids, featuring a 'surrender' button and modal improvements.",
     },
@@ -176,13 +176,13 @@ const Portfolio = () => {
     },
     {
       id: 8,
-      name: "OnCode",
+      name: "OnComp",
       description:
         "A platform for executing code online and solving programming challenges.",
       technologies: ["React", "Node.js", "Docker", "MongoDB"],
       icon: <Code className="w-8 h-8" />,
       color: "from-purple-600 to-blue-600",
-      demo: "https://github.com/RajBhut/oncomp",
+      demo: "https://oncomp.rajb.codes",
       details:
         "Allows users to write, execute, and test code in multiple programming languages directly in the browser. Plans to expand with problem-solving features inspired by LeetCode.",
     },
