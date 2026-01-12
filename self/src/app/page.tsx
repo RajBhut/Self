@@ -22,6 +22,7 @@ type Project = {
   demo: string;
   details: string;
   year: string;
+  type?: "Product" | "Infra" | "Hackathon";
 };
 
 export default function Home() {
@@ -37,10 +38,11 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const projects = [
+  const projects: Project[] = [
     {
       id: 1,
       name: "OnComp",
+      type: "Product",
       description: "Online code execution platform with multi-language support",
       technologies: ["React", "Node.js", "Docker", "MongoDB"],
       demo: "https://oncomp.rajb.tech",
@@ -50,17 +52,30 @@ export default function Home() {
     },
     {
       id: 2,
+      name: "Hoster",
+      type: "Infra",
+      description: "Self-hosting platform for deploying web applications",
+      technologies: ["Node.js", "Docker", "Nginx", "Linux", "MongoDB"],
+      demo: "https://hoster.rajb.tech",
+      details:
+        "A self-hosting and deployment platform built to deploy applications using Docker. Includes container lifecycle management, Nginx reverse proxy configuration, environment handling, and production-style deployment workflows.",
+      year: "2024",
+    },
+    {
+      id: 3,
       name: "Paster",
+      type: "Product",
       description: "Code snippet sharing platform for developers",
-      technologies: ["React.js", "Node.js", "Postgres", "Redis"],
+      technologies: ["React.js", "Node.js", "PostgreSQL", "Redis"],
       demo: "https://paster.rajb.codes",
       details:
         "Developer-focused pastebin alternative with syntax highlighting, private/public sharing options, and snippet expiration settings. Optimized for fast retrieval with Redis caching.",
       year: "2024",
     },
     {
-      id: 3,
+      id: 4,
       name: "FoodRikshaw",
+      type: "Product",
       description: "Food truck management and ordering system",
       technologies: ["React", "Express", "MongoDB", "Socket.IO"],
       demo: "https://food.rajb.codes",
@@ -69,8 +84,9 @@ export default function Home() {
       year: "2024",
     },
     {
-      id: 4,
+      id: 5,
       name: "BlinkNotes",
+      type: "Product",
       description: "Educational platform for study materials",
       technologies: ["React", "Spring Boot", "MongoDB", "Cloudinary"],
       demo: "https://blinknotes-tj5f.vercel.app",
@@ -79,8 +95,9 @@ export default function Home() {
       year: "2023",
     },
     {
-      id: 5,
+      id: 6,
       name: "Vidhyakosh",
+      type: "Hackathon",
       description: "Educational content sharing platform",
       technologies: ["React", "Express", "MongoDB", "Cloudinary"],
       demo: "https://github.com/RajBhut/tictechtoe24",
@@ -89,8 +106,9 @@ export default function Home() {
       year: "2023",
     },
     {
-      id: 6,
+      id: 7,
       name: "Brainiac Blast",
+      type: "Product",
       description: "AI-powered quiz platform",
       technologies: ["React", "Node.js", "PostgreSQL", "OpenAI API"],
       demo: "https://frontend-braniac.vercel.app",
@@ -367,6 +385,7 @@ export default function Home() {
                       >
                         {project.name}
                       </h3>
+
                       <p
                         className={`${
                           darkMode ? "text-white/60" : "text-black/60"
@@ -375,13 +394,28 @@ export default function Home() {
                         {project.description}
                       </p>
                     </div>
-                    <span
-                      className={`text-sm ${
-                        darkMode ? "text-white/40" : "text-black/40"
-                      }`}
-                    >
-                      {project.year}
-                    </span>
+
+                    <div className="flex flex-col items-end gap-1">
+                      <span
+                        className={`text-sm ${
+                          darkMode ? "text-white/40" : "text-black/40"
+                        }`}
+                      >
+                        {project.year}
+                      </span>
+
+                      {project.type && (
+                        <span
+                          className={`text-xs px-2 py-0.5 rounded-full ${
+                            darkMode
+                              ? "bg-white/5 text-white/50"
+                              : "bg-black/5 text-black/50"
+                          }`}
+                        >
+                          {project.type}
+                        </span>
+                      )}
+                    </div>
                   </div>
 
                   <div className="flex flex-wrap gap-2 mb-4">
