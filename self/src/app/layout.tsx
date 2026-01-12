@@ -13,9 +13,71 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Raj Bhut",
+  title: "Raj Bhut - Full Stack Developer | Software Engineer Portfolio",
   description:
-    "Personal website of Raj Bhut - Software Engineer, Tech Enthusiast, and Lifelong Learner. Explore my projects, blog posts, and get in touch!",
+    "Raj Bhut is a Full Stack Developer specializing in React, Node.js, Docker, and cloud technologies. Explore innovative projects including OnComp, Hoster, and Paster. Available for software development opportunities.",
+  keywords: [
+    "Raj Bhut",
+    "Full Stack Developer",
+    "Software Engineer",
+    "React Developer",
+    "Node.js Developer",
+    "Docker",
+    "MongoDB",
+    "PostgreSQL",
+    "Web Development",
+    "Portfolio",
+    "OnComp",
+    "Hoster",
+    "Paster",
+    "DevOps Engineer",
+    "Cloud Computing",
+  ],
+  authors: [{ name: "Raj Bhut" }],
+  creator: "Raj Bhut",
+  publisher: "Raj Bhut",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://rajb.tech",
+    siteName: "Raj Bhut Portfolio",
+    title: "Raj Bhut - Full Stack Developer | Software Engineer Portfolio",
+    description:
+      "Explore the portfolio of Raj Bhut, a Full Stack Developer specializing in React, Node.js, Docker, and modern web technologies. View innovative projects and get in touch.",
+    images: [
+      {
+        url: "https://rajb.tech/raj_c.png",
+        width: 800,
+        height: 800,
+        alt: "Raj Bhut - Full Stack Developer Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Raj Bhut - Full Stack Developer | Software Engineer Portfolio",
+    description:
+      "Full Stack Developer specializing in React, Node.js, Docker, and cloud technologies. View my projects and connect with me.",
+    images: ["https://rajb.tech/raj_c.png"],
+    creator: "@rajbhut",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "your-google-verification-code",
+  },
+  alternates: {
+    canonical: "https://rajb.tech",
+  },
 };
 
 export default function RootLayout({

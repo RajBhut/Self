@@ -12,6 +12,7 @@ import {
   Sun,
   ArrowRight,
   Circle,
+  Code2,
 } from "lucide-react";
 
 type Project = {
@@ -37,6 +38,35 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Structured Data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Raj Bhut",
+    url: "https://rajb.tech",
+    image: "https://rajb.tech/raj_c.png",
+    jobTitle: "Full Stack Developer",
+    description:
+      "Full Stack Developer specializing in React, Node.js, Docker, and modern web technologies",
+    sameAs: [
+      "https://github.com/RajBhut",
+      "https://www.linkedin.com/in/raj-bhut-2b9a67264",
+    ],
+    email: "rajbhut2832005@gmail.com",
+    knowsAbout: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "PostgreSQL",
+      "Docker",
+      "DevOps",
+      "Full Stack Development",
+      "Web Development",
+    ],
+  };
 
   const projects: Project[] = [
     {
@@ -138,6 +168,12 @@ export default function Home() {
         darkMode ? "bg-[#0f0f0f]" : "bg-[#fafafa]"
       } transition-colors duration-500`}
     >
+      {/* Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+
       {/* Sidebar Navigation */}
       <motion.nav
         initial={{ x: -100, opacity: 0 }}
@@ -189,6 +225,7 @@ export default function Home() {
 
         <button
           onClick={() => setDarkMode(!darkMode)}
+          aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
           className={`w-10 h-10 rounded-full ${
             darkMode ? "bg-white/10 text-white" : "bg-black/10 text-black"
           } flex items-center justify-center hover:scale-110 transition-transform`}
@@ -218,6 +255,7 @@ export default function Home() {
         </div>
         <button
           onClick={() => setDarkMode(!darkMode)}
+          aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
           className={`w-9 h-9 rounded-full ${
             darkMode ? "bg-white/10 text-white" : "bg-black/10 text-black"
           } flex items-center justify-center`}
@@ -255,8 +293,8 @@ export default function Home() {
                   } rounded-full blur-2xl`}
                 />
                 <img
-                  src="raj.jpg"
-                  alt="Raj Bhut"
+                  src="raj_c.png"
+                  alt="Raj Bhut - Full Stack Developer specializing in React, Node.js, and Docker"
                   className="relative w-32 h-32 lg:w-48 lg:h-48 xl:w-56 xl:h-56 rounded-full object-cover"
                 />
               </motion.div>
@@ -311,18 +349,33 @@ export default function Home() {
 
                   <div className="flex gap-3">
                     {[
-                      { icon: Github, href: "https://github.com/RajBhut" },
+                      {
+                        icon: Github,
+                        href: "https://github.com/RajBhut",
+                        label: "Visit Raj Bhut's GitHub profile",
+                      },
                       {
                         icon: Linkedin,
                         href: "https://www.linkedin.com/in/raj-bhut-2b9a67264",
+                        label: "Connect with Raj Bhut on LinkedIn",
                       },
-                      { icon: Mail, href: "mailto:rajbhut2832005@gmail.com" },
+                      {
+                        icon: Code2,
+                        href: "https://leetcode.com/u/RajBhut/",
+                        label: "View Raj Bhut's LeetCode profile",
+                      },
+                      {
+                        icon: Mail,
+                        href: "mailto:rajbhut2832005@gmail.com",
+                        label: "Send email to Raj Bhut",
+                      },
                     ].map((social, index) => (
                       <motion.a
                         key={index}
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={social.label}
                         whileHover={{ y: -2 }}
                         className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full ${
                           darkMode
