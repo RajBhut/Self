@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+"use client";
 import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import {
   Github,
   Linkedin,
@@ -13,8 +14,18 @@ import {
   Circle,
 } from "lucide-react";
 
-const Portfolio = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
+type Project = {
+  id: number;
+  name: string;
+  description: string;
+  technologies: string[];
+  demo: string;
+  details: string;
+  year: string;
+};
+
+export default function Home() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [darkMode, setDarkMode] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -98,7 +109,7 @@ const Portfolio = () => {
 
   const downloadResume = () => {
     window.open(
-      "https://res.cloudinary.com/demo214/image/upload/v1734790835/isc6qj12lrgp7aoefftv.pdf",
+      "https://res.cloudinary.com/demo214/image/upload/RajBhut2026_sgbguz.pdf",
       "_blank"
     );
   };
@@ -117,7 +128,7 @@ const Portfolio = () => {
           darkMode ? "bg-black/40" : "bg-white/40"
         } backdrop-blur-xl border-r ${
           darkMode ? "border-white/5" : "border-black/5"
-        } z-50 flex flex-col items-center py-8 hidden lg:flex`}
+        } z-50 hidden lg:flex flex-col items-center py-8`}
       >
         <div className="mb-12">
           <motion.div
@@ -206,100 +217,105 @@ const Portfolio = () => {
           className="min-h-screen flex items-center justify-center px-6 lg:px-20"
           id="about"
         >
-          <div className="max-w-5xl w-full">
+          <div className="max-w-6xl w-full">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
+              className="flex flex-col lg:flex-row-reverse items-center lg:items-start lg:justify-between gap-8 lg:gap-12"
             >
-              <div className="mb-8 lg:mb-12">
-                <motion.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: 0.2, duration: 0.6 }}
-                  className="relative inline-block"
-                >
-                  <div
-                    className={`absolute inset-0 ${
-                      darkMode ? "bg-white/5" : "bg-black/5"
-                    } rounded-full blur-2xl`}
-                  />
-                  <img
-                    src="raj.jpg"
-                    alt="Raj Bhut"
-                    className="relative w-24 h-24 lg:w-32 lg:h-32 rounded-full object-cover"
-                  />
-                </motion.div>
-              </div>
-
+              {/* Image Section - Right on Desktop, Top on Mobile */}
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-                className={`inline-block px-4 py-2 rounded-full text-xs font-medium mb-6 ${
-                  darkMode
-                    ? "bg-white/5 text-white/60 border border-white/10"
-                    : "bg-black/5 text-black/60 border border-black/10"
-                }`}
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                className="relative shrink-0"
               >
-                Available for opportunities
+                <div
+                  className={`absolute inset-0 ${
+                    darkMode ? "bg-white/5" : "bg-black/5"
+                  } rounded-full blur-2xl`}
+                />
+                <img
+                  src="raj.jpg"
+                  alt="Raj Bhut"
+                  className="relative w-32 h-32 lg:w-48 lg:h-48 xl:w-56 xl:h-56 rounded-full object-cover"
+                />
               </motion.div>
 
-              <h1
-                className={`text-5xl lg:text-7xl xl:text-8xl font-bold mb-6 ${
-                  darkMode ? "text-white" : "text-black"
-                } tracking-tight leading-none`}
-              >
-                Raj Bhut
-              </h1>
-
-              <p
-                className={`text-xl lg:text-2xl mb-8 ${
-                  darkMode ? "text-white/50" : "text-black/50"
-                } max-w-2xl font-light`}
-              >
-                Full Stack Developer crafting digital experiences with clean
-                code and thoughtful design
-              </p>
-
-              <div className="flex flex-wrap gap-4 items-center">
-                <motion.button
-                  whileHover={{ x: 5 }}
-                  onClick={downloadResume}
-                  className={`group flex items-center gap-3 px-8 py-4 rounded-full ${
+              {/* Content Section - Left on Desktop */}
+              <div className="flex-1 text-center lg:text-left">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                  className={`inline-block px-4 py-2 rounded-full text-xs font-medium mb-6 ${
                     darkMode
-                      ? "bg-white text-black hover:bg-white/90"
-                      : "bg-black text-white hover:bg-black/90"
-                  } transition-colors`}
+                      ? "bg-white/5 text-white/60 border border-white/10"
+                      : "bg-black/5 text-black/60 border border-black/10"
+                  }`}
                 >
-                  <span className="font-medium">Download Resume</span>
-                  <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
-                </motion.button>
+                  Available for opportunities
+                </motion.div>
 
-                <div className="flex gap-3">
-                  {[
-                    { icon: Github, href: "https://github.com/RajBhut" },
-                    {
-                      icon: Linkedin,
-                      href: "https://www.linkedin.com/in/raj-bhut-2b9a67264",
-                    },
-                    { icon: Mail, href: "mailto:rajbhut2832005@gmail.com" },
-                  ].map((social, index) => (
-                    <motion.a
-                      key={index}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ y: -2 }}
-                      className={`w-12 h-12 rounded-full ${
-                        darkMode
-                          ? "bg-white/5 text-white/60 hover:text-white hover:bg-white/10"
-                          : "bg-black/5 text-black/60 hover:text-black hover:bg-black/10"
-                      } flex items-center justify-center transition-all`}
-                    >
-                      <social.icon className="w-4 h-4" />
-                    </motion.a>
-                  ))}
+                <h1
+                  className={`text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 ${
+                    darkMode ? "text-white" : "text-black"
+                  } tracking-tight leading-none`}
+                >
+                  Raj Bhut
+                </h1>
+
+                <p
+                  className={`text-lg sm:text-xl lg:text-2xl mb-8 ${
+                    darkMode ? "text-white/50" : "text-black/50"
+                  } font-light`}
+                >
+                  Full Stack Developer crafting digital experiences with clean
+                  code and thoughtful design
+                </p>
+
+                <div className="flex flex-col sm:flex-row flex-wrap gap-4 items-center justify-center lg:justify-start">
+                  <motion.button
+                    whileHover={{ x: 5 }}
+                    onClick={downloadResume}
+                    className={`group flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-full ${
+                      darkMode
+                        ? "bg-white text-black hover:bg-white/90"
+                        : "bg-black text-white hover:bg-black/90"
+                    } transition-colors`}
+                  >
+                    <span className="font-medium text-sm sm:text-base">
+                      Download Resume
+                    </span>
+                    <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+                  </motion.button>
+
+                  <div className="flex gap-3">
+                    {[
+                      { icon: Github, href: "https://github.com/RajBhut" },
+                      {
+                        icon: Linkedin,
+                        href: "https://www.linkedin.com/in/raj-bhut-2b9a67264",
+                      },
+                      { icon: Mail, href: "mailto:rajbhut2832005@gmail.com" },
+                    ].map((social, index) => (
+                      <motion.a
+                        key={index}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ y: -2 }}
+                        className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full ${
+                          darkMode
+                            ? "bg-white/5 text-white/60 hover:text-white hover:bg-white/10"
+                            : "bg-black/5 text-black/60 hover:text-black hover:bg-black/10"
+                        } flex items-center justify-center transition-all`}
+                      >
+                        <social.icon className="w-4 h-4" />
+                      </motion.a>
+                    ))}
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -338,8 +354,8 @@ const Portfolio = () => {
                   onClick={() => setSelectedProject(project)}
                   className={`group cursor-pointer p-6 lg:p-8 rounded-2xl ${
                     darkMode
-                      ? "bg-white/[0.02] hover:bg-white/[0.04] border border-white/5"
-                      : "bg-black/[0.02] hover:bg-black/[0.04] border border-black/5"
+                      ? "bg-white/2 hover:bg-white/4 border border-white/5"
+                      : "bg-black/2 hover:bg-black/4 border border-black/5"
                   } transition-all duration-300`}
                 >
                   <div className="flex justify-between items-start mb-4">
@@ -597,7 +613,7 @@ const Portfolio = () => {
               </p>
 
               <div className="flex flex-wrap gap-2 mb-8">
-                {selectedProject.technologies.map((tech) => (
+                {selectedProject.technologies.map((tech: string) => (
                   <span
                     key={tech}
                     className={`px-4 py-2 rounded-full text-sm ${
@@ -630,6 +646,4 @@ const Portfolio = () => {
       </AnimatePresence>
     </div>
   );
-};
-
-export default Portfolio;
+}
