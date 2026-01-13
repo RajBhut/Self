@@ -20,7 +20,7 @@ type Project = {
   name: string;
   description: string;
   technologies: string[];
-  demo: string;
+  Github: string;
   details: string;
   year: string;
   type?: "Product" | "Infra" | "Hackathon";
@@ -75,7 +75,7 @@ export default function Home() {
       type: "Product",
       description: "Online code execution platform with multi-language support",
       technologies: ["React", "Node.js", "Docker", "MongoDB"],
-      demo: "https://oncomp.rajb.tech",
+      Github: "https://github.com/RajBhut/OnComp",
       details:
         "A comprehensive platform allowing users to write, execute, and test code in multiple programming languages directly in the browser. Features real-time execution, syntax highlighting, and collaborative coding capabilities.",
       year: "2024",
@@ -86,7 +86,7 @@ export default function Home() {
       type: "Infra",
       description: "Self-hosting platform for deploying web applications",
       technologies: ["Node.js", "Docker", "Nginx", "Linux", "MongoDB"],
-      demo: "https://hoster.rajb.tech",
+      Github: "https://github.com/RajBhut/Hoster",
       details:
         "A self-hosting and deployment platform built to deploy applications using Docker. Includes container lifecycle management, Nginx reverse proxy configuration, environment handling, and production-style deployment workflows.",
       year: "2024",
@@ -97,7 +97,7 @@ export default function Home() {
       type: "Product",
       description: "Code snippet sharing platform for developers",
       technologies: ["React.js", "Node.js", "PostgreSQL", "Redis"],
-      demo: "https://paster.rajb.codes",
+      Github: "https://github.com/RajBhut/paster_front",
       details:
         "Developer-focused pastebin alternative with syntax highlighting, private/public sharing options, and snippet expiration settings. Optimized for fast retrieval with Redis caching.",
       year: "2024",
@@ -108,7 +108,7 @@ export default function Home() {
       type: "Product",
       description: "Food truck management and ordering system",
       technologies: ["React", "Express", "MongoDB", "Socket.IO"],
-      demo: "https://food.rajb.codes",
+      Github: "https://github.com/RajBhut/food_rikshaw",
       details:
         "Real-time order management system with daily menu updates, live order tracking, and Firebase push notifications for customers.",
       year: "2024",
@@ -119,7 +119,7 @@ export default function Home() {
       type: "Product",
       description: "Educational platform for study materials",
       technologies: ["React", "Spring Boot", "MongoDB", "Cloudinary"],
-      demo: "https://blinknotes-tj5f.vercel.app",
+      Github: "https://github.com/RajBhut/BlinkNotes_backend ",
       details:
         "Streamlined platform for students to access study materials organized by subject and chapter, with robust search and cloud-based storage.",
       year: "2023",
@@ -130,7 +130,7 @@ export default function Home() {
       type: "Hackathon",
       description: "Educational content sharing platform",
       technologies: ["React", "Express", "MongoDB", "Cloudinary"],
-      demo: "https://github.com/RajBhut/tictechtoe24",
+      Github: "https://github.com/RajBhut/tictechtoe24",
       details:
         "Hackathon finalist platform featuring blogging system, book marketplace, and comprehensive content management for educators.",
       year: "2023",
@@ -141,7 +141,7 @@ export default function Home() {
       type: "Product",
       description: "AI-powered quiz platform",
       technologies: ["React", "Node.js", "PostgreSQL", "OpenAI API"],
-      demo: "https://frontend-braniac.vercel.app",
+      Github: "https://github.com/RajBhut/BraniacBlast_FrontEnd ",
       details:
         "Interactive quiz platform with real-time leaderboards, customizable quizzes, and AI-generated questions with adaptive difficulty.",
       year: "2024",
@@ -715,7 +715,7 @@ export default function Home() {
               </div>
 
               <a
-                href={selectedProject.demo}
+                href={selectedProject.Github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`inline-flex items-center gap-3 px-8 py-4 rounded-full ${
