@@ -126,17 +126,6 @@ export default function Home() {
     },
     {
       id: 6,
-      name: "Vidhyakosh",
-      type: "Hackathon",
-      description: "Educational content sharing platform",
-      technologies: ["React", "Express", "MongoDB", "Cloudinary"],
-      Github: "https://github.com/RajBhut/tictechtoe24",
-      details:
-        "Hackathon finalist platform featuring blogging system, book marketplace, and comprehensive content management for educators.",
-      year: "2023",
-    },
-    {
-      id: 7,
       name: "Brainiac Blast",
       type: "Product",
       description: "AI-powered quiz platform",
