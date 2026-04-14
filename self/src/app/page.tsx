@@ -146,7 +146,7 @@ export default function Home() {
 
   const downloadResume = () => {
     window.open(
-      "https://res.cloudinary.com/demo214/image/upload/RajBhut2026_sgbguz.pdf",
+      "https://res.cloudinary.com/demo214/image/upload/v1776168539/Raj2026res_zjok6a.pdf",
       "_blank"
     );
   };
